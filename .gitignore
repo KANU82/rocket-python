@@ -94,3 +94,6 @@ Vagrantfile
 test_dev.py
 
 .DS_Store
+
+# test project
+test.py
