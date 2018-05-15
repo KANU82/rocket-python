@@ -23,7 +23,7 @@ Initialize the client with a username and password.  This user *must* have Admin
     api.send_message('message', 'room_id')
     api.get_private_rooms()
     api.get_private_room_id('chanel_name')
-    api.get_private_room_history('room_id', oldest=date)
+    api.get_private_room_history('room_id', oldest=date, message_count = 20)
     api.get_public_rooms()
     api.get_room_info('room_id')
     api.get_private_room_info('room_id')
