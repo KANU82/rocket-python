@@ -43,7 +43,7 @@ class RocketChatAPI(object):
                 
         return get_private_rooms.call(**kwargs)
 
-    def get_private_room_history(self, room_id, oldest=None, **kwargs):
+    def get_private_room_history(self, room_id, oldest=None, message_count = 20 ,**kwargs):
         """
         Get various history of specific private group in this case private
 
@@ -54,6 +54,7 @@ class RocketChatAPI(object):
         return GetPrivateRoomHistory(settings=self.settings, **kwargs).call(
             room_id=room_id,
             oldest=oldest,
+            message_count = message_count,
             **kwargs
         )
 

@@ -10,11 +10,11 @@ class GetPrivateRoomHistory(RocketChatBase):
 
     def build_endpoint(self, **kwargs):
         if 'oldest' in kwargs:
-            return '{endpoint}?roomId={room_id}&oldest={oldest}'.format(
+            return '{endpoint}?roomId={room_id}&oldest={oldest}&count={message_count}'.format(
                 endpoint=self.endpoint,
                 oldest=kwargs.get('oldest'),
-                room_id=kwargs.get('room_id')
-            )
+                room_id=kwargs.get('room_id'),
+                message_count=kwargs.get('message_count'))
         else:
             return '{endpoint}?roomId={room_id}'.format(
                 endpoint=self.endpoint,

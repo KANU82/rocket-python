@@ -33,7 +33,8 @@ Initialize the client with a username and password.  This user *must* have Admin
 check /rocketchat/calls/api.py for more.
 
 ##### Calls Descriptions
-	api.get_private_room_id('chanel_name') - Return's room identifer for called chanel name  
+	api.get_private_room_id('chanel_name') - Return's room identifer for called chanel name 
+	 
 
 #### Running Tests
 
