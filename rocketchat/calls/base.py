@@ -73,7 +73,7 @@ class RocketChatBase(object):
         :param kwargs:
         :return:
         """
-
+        
         timeout = kwargs.get('timeout', None)
         url = '{domain}{endpoint}'.format(
             domain=self.settings['domain'],

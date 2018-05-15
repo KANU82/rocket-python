@@ -22,6 +22,7 @@ Initialize the client with a username and password.  This user *must* have Admin
 ##### Available Calls
     api.send_message('message', 'room_id')
     api.get_private_rooms()
+    api.get_private_room_id('chanel_name')
     api.get_private_room_history('room_id', oldest=date)
     api.get_public_rooms()
     api.get_room_info('room_id')
@@ -30,6 +31,9 @@ Initialize the client with a username and password.  This user *must* have Admin
     api.get_my_info()
 
 check /rocketchat/calls/api.py for more.
+
+##### Calls Descriptions
+	api.get_private_room_id('chanel_name') - Return's room identifer for called chanel name  
 
 #### Running Tests
 

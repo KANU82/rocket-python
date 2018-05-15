@@ -1,6 +1,6 @@
 from rocketchat.calls.chat.send_message import SendMessage
 from rocketchat.calls.channels.get_public_rooms import GetPublicRooms
-from rocketchat.calls.groups.get_private_rooms import GetPrivateRooms
+from rocketchat.calls.groups.get_private_rooms import GetPrivateRooms, GetPrivateRoomID
 from rocketchat.calls.channels.get_room_info import GetRoomInfo
 from rocketchat.calls.groups.get_private_room_info import GetPrivateRoomInfo
 from rocketchat.calls.channels.get_history import GetRoomHistory
@@ -33,6 +33,15 @@ class RocketChatAPI(object):
         Get a listing of all private rooms with their names and IDs
         """
         return GetPrivateRooms(settings=self.settings, **kwargs).call(**kwargs)
+    
+    def get_private_room_id (self, private_room, **kwargs):
+        """
+        Get a ID of private room by name
+        """
+        get_private_rooms = GetPrivateRoomID(settings=self.settings)
+        get_private_rooms.private_room = private_room
+                
+        return get_private_rooms.call(**kwargs)
 
     def get_private_room_history(self, room_id, oldest=None, **kwargs):
         """

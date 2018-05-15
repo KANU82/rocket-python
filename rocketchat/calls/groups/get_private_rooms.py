@@ -29,3 +29,28 @@ class GetPrivateRooms(RocketChatBase):
             ), exc_info=True)
 
         return rooms
+
+class GetPrivateRoomID(RocketChatBase):
+    endpoint = '/api/v1/groups.list'
+    private_room = ''      
+
+    def build_endpoint(self):
+        return self.endpoint
+
+    def post_response(self, result, **kwargs):
+        rooms = []
+        room_id = ''
+
+        try:
+            _rooms = result.get('groups')
+
+            for room in _rooms:
+                if room.get('name') == self.private_room:
+                    room_id = room.get('_id')
+
+        except Exception as e:
+            logger.error('Exception in fetching private rooms {e}'.format(
+                e=e
+            ), exc_info=True)
+
+        return room_id
