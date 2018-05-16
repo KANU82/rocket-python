@@ -1,4 +1,5 @@
 from rocketchat.calls.chat.send_message import SendMessage
+from rocketchat.calls.chat.delete_message import DeletePrivateRoomMessage
 from rocketchat.calls.channels.get_public_rooms import GetPublicRooms
 from rocketchat.calls.groups.get_private_rooms import GetPrivateRooms, GetPrivateRoomID
 from rocketchat.calls.channels.get_room_info import GetRoomInfo
@@ -25,6 +26,20 @@ class RocketChatAPI(object):
         return SendMessage(settings=self.settings, **kwargs).call(
             message=message,
             room_id=room_id,
+            **kwargs
+        )
+        
+    def delete_private_room_message(self, room_id, message_id, **kwargs):
+        """
+        Get various information about a specific private group
+
+        :param room_id:
+        :param kwargs:
+        :return:
+        """
+        return DeletePrivateRoomMessage(settings=self.settings, **kwargs).call(
+            room_id=room_id,
+            message_id=message_id,
             **kwargs
         )
 
